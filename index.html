@@ -71,7 +71,8 @@
         <div class="label">
           <label for="phone">Phone Number</label>
           <span class="error">This field is required</span>
-          <input type="tel" part="+ [0-9]{3} [0-9]{3} [0-9]{3} [0-9]{3}" class="input" id="phone" placeholder="e.g. +1 234 567 890">
+          <input type="tel" part="\+ [0-9]{1} [0-9]{3} [0-9]{3} [0-9]{3}" class="input" id="phone"
+            placeholder="e.g. +1 234 567 890">
         </div>
       </form>
 
@@ -106,7 +107,7 @@
         <li class="box">
           <img src="./assets/images/icon-pro.svg" alt="">
           <div class="box-text">
-            <h4>Pro</h4>
+            <h4 class="plan-name">Pro</h4>
             <p class="price" id="pro-price">$15/mo</p>
           </div>
         </li>
@@ -137,31 +138,31 @@
       </div>
 
       <ul class="checkboxes">
-        <li>
+        <li class="add-ons">
           <input type="checkbox" class="checkbox" id="checkbox1">
-          <label for="checkbox1">
+          <label for="checkbox1" class="add-on">
             <h4>Online service</h4>
             <p class="title-description">Access to multiplayer games</p>
           </label>
-          <span>+$1/mo</span>
+          <span id="service-price">+$1/mo</span>
         </li>
 
-        <li>
+        <li class="add-ons">
           <input type="checkbox" class="checkbox" id="checkbox2">
-          <label for="checkbox2">
+          <label for="checkbox2" class="add-on">
             <h4>Larger storage</h4>
             <p class="title-description">Extra 1TB of cloud save</p>
           </label>
-          <span>+$2/mo</span>
+          <span id="storage-price">+$2/mo</span>
         </li>
 
-        <li>
+        <li class="add-ons">
           <input type="checkbox" class="checkbox" id="checkbox3">
-          <label for="checkbox3">
+          <label for="checkbox3" class="add-on">
             <h4>Customizable Profile</h4>
             <p class="title-description">Custom theme on your profile</p>
           </label>
-          <span>+$2/mo</span>
+          <span id="profile-price">+$2/mo</span>
         </li>
       </ul>
 
@@ -178,18 +179,41 @@
         <h1 class="title">Finishing up</h1>
         <p class="title-description">Double-check everything looks OK before confirming.</p>
       </div>
+      <div class="review">
+        <div class="final-summary">
+          <div class="plan-and-price">
+            <div>
+              <h4 class="selected-plan"></h4>
+              <button class="btn-change" onclick="changeBtn()">Change</button>
+            </div>
+            <h4 class="plan-price"></h4>
+          </div>
+          <div class="selected-add-ons">
 
-      <!-- Dynamically add subscription and add-on selections here -->
-
-      Total (per month/year)
-
+          </div>
+        </div>
+        <div class="total-price">
+          <p>Total(per month)</p>
+          <span>800$</span>
+        </div>
+      </div>
       <div class="btns">
         <button class="btn-back" onclick="nextPrevTab(-1)">Go Back</button>
-        <button class="btn-next" onclick="nextPrevTab(1)">Confirm</button>
+        <button class="btn-next btn-confirm" onclick="submitBtn(1)">Confirm</button>
       </div>
 
     </div>
     <!-- Step 4 end -->
+    <!-- Step 5 start -->
+    <div class="tab final-tb">
+      <img class="final-img" src="./assets/images/icon-thank-you.svg" alt="">
+      <h1 class="title">Thank you!</h1>
+      <p class="title-description">Thanks for confirming your subscription! We hope you have fun
+        using our platform. If you ever need support, please feel free
+        to email us at support@loremgaming.com.</p>
+
+    </div>
+    <!-- Step 5 end -->
   </div>
   <script src="script.js"></script>
 </body>

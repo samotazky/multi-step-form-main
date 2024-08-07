@@ -34,27 +34,16 @@ body {
 }
 
 .wrapper {
-    height: 595px;
-    display: grid;
-    grid-template-columns: 30% 60%;
-    align-items: center;
-    gap: 100px;
     background-color: var(--white);
     border-radius: 10px;
-    padding: 15px;
-    width: 60%;
 }
 
 /**SIDE BAR START*/
 .side-bar {
-    height: 100%;
-    width: clamp(230px, 100%, 800px); /** treba prepisať strednu hodnotu na 100%  */
-    /**!!!! POHRAŤ SA S VEĽKOSTAMI SIDEBARU WRAPPER ZRUŠIŤ GRID A NAHODIT PRE SIDE BAR POSITION ABSOLUTE A VYBAVENE PRIPADNE TO SKUSIŤ NAŠTYLOVAŤ ZNOVU OD MOBILE FIRST */
     display: grid;
-    grid-template-rows: repeat(4, 90px);
+    width: 100%;
     background:url(./assets/images/bg-sidebar-desktop.svg) no-repeat;
     border-radius: 12px;
-    padding: 30px 30px 0 30px;
 }
 
 .step {
@@ -67,14 +56,11 @@ body {
 
 
 .step span {
-    font-size: 14px;
     color: var(--light-gray);
-    font-weight: var(--normal);
 }
 
 .step p {
     color: var(--magnolia);
-    font-weight: var(--bold);
 }
 
 .step-num {
@@ -87,7 +73,6 @@ body {
     background-color: transparent;
     border: 2px solid var(--magnolia);
     border-radius: 50%;
-    text-align: center;
 }
 
 .step-num.active {
@@ -99,10 +84,8 @@ body {
 
 .tab {
     display: none;
-    height: 500px;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 82%;
 }
 
 .title {
@@ -146,15 +129,13 @@ label {
 }
 
 .error {
+    display: none;
     float: right;
     color: var(--strawberry-red);
     font-weight: var(--semi-bold);
-    display: none;
 }
 
 input {
-    width: 100%;
-    padding: 8px;
     border-radius: 10px;
     border: 1px solid var(--marine-blue);
     outline: none;
@@ -172,23 +153,19 @@ input:focus {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 2%;
     list-style: none;
     padding: 0;
 }
 
 .box {
-    width: 140px;
     display: flex;
     flex-direction: column;
     gap: 45px;
     border: 1px solid var(--light-gray);
     border-radius: 8px;
-    padding: 20px 16px;
 }
 
 .box img {
-    height: auto;
     width: 40px;
     height: auto;
 }
@@ -197,14 +174,11 @@ input:focus {
     color: var(--marine-blue);
 }
 
-/**SWITCH BUTTON */
-.btn-switch {
+    /**SWITCH BUTTON */
+    .btn-switch {
     display: flex;
-    gap: 23px;
-    justify-content: center;
+    flex-direction: row;
     background-color:  hsl(217, 100%, 97%);
-    width: 100%;
-    padding: 10px 0;
   }
   /* The switch - the box around the slider */
   .switch {
@@ -406,17 +380,16 @@ input:focus {
 /** MEDIA QUERIES */
 
 @media (max-width: 990px) {
-   .wrapper {
-     display: block;
-   }
-
    .side-bar {
-    grid-template-rows: none;
+    position: absolute;
+    top: 0;
+    left: 0;
     grid-template-columns: repeat(4, auto);
     justify-content: space-around;
+    align-items: flex-start;
     background: url(./assets/images/bg-sidebar-mobile.svg) no-repeat;
     background-size: cover;
-    padding: 10%;
+    height: 30%;
     }
 
    .step-text {
@@ -424,6 +397,7 @@ input:focus {
    }
 
    .tab {
+    position: relative;
     margin: 0 auto;
     background-color: var(--white);
     }
