@@ -43,8 +43,8 @@ const nextPrevTab = (n) => {
 
 const submitBtn = (n) => {
     tabs[currentTab].style.display = "none";
-        currentTab += n;
-        showTab(currentTab);
+    currentTab += n;
+    showTab(currentTab);
 }
 
 const validateForm = () => {
@@ -67,7 +67,8 @@ const updateStep = () => {
 // 2. Plans
 const obj = {
     plan: null,
-    price: null
+    price: null,
+
 }
 
 const plans = document.querySelectorAll(".box")
@@ -160,6 +161,8 @@ const changeBtn = () => {
 }
 
 const updateFinalTab = () => {
+    obj.addOns = []
+
     const finalPlan = document.querySelector(".selected-plan")
     const finalPlanPrice = document.querySelector(".plan-price")
     finalPlan.textContent = obj.plan
@@ -191,7 +194,27 @@ const updateFinalTab = () => {
             selectedAddOn.appendChild(priceElement)
             finalAddOns.appendChild(selectedAddOn)
 
+            obj.addOns.push({
+                name: checkboxText[idx].textContent,
+                price: parseInt(checkboxPrice[idx].textContent.replace(/\D/g, ''))
+            })
+
+            let planPrice = parseInt(obj.price.replace(/\D/g, '')); // Odstráni všetky nečíselné znaky a ponechá číslo
+
+            // Potom prejdeš cez addOns a spočítaš ich ceny
+            let totalAddOnsPrice = obj.addOns.reduce((total, addOn) => {
+                return total + addOn.price;
+            }, 0);
+
+            // Spočítaš cenu plánu a doplnkov
+            let totalPrice = planPrice + totalAddOnsPrice;
+            let finalPrice = document.querySelector(".final-price")
+            finalPrice.textContent = totalPrice + "$"
         }
     })
+    return obj
 }
+
+
+
 updateFinalTab()
